@@ -40,9 +40,9 @@ const App: React.FC = () => {
   const _subscribe = () => {
     /** Subscribe to LightSensor updates */
     // Start listening for updates of lux sensor
-    _subscription.current = LightSensor.addListener((newData) => {
+    _subscription.current = LightSensor.addListener(async (newData) => {
       // Update luxData with new data point
-      setLuxData((prevData) => {
+      await setLuxData((prevData) => {
         console.log(maxDataPoints + ` and ` + prevData.length)  // debuglines
         if (prevData.length >= maxDataPoints) {  // if array is too big, we slice it down to maxDataPoints
           return [...prevData.slice(1), newData.illuminance];
