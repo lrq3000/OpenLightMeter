@@ -154,18 +154,22 @@ const App: React.FC = () => {
   return (
     <View style={styles.sensor}>
       { Platform.OS !== 'android' ? <Text>`Only available on Android`</Text> : (  // LightSensor is only available on Android
-        (luxData?.length === 0) ? (  // if array is empty, then react-native-chart-kit will fail, so the app will always crash at startup without checking explicitly https://stackoverflow.com/questions/71082961/unable-to-use-dynamic-data-into-react-native-chart-kit
-          <Text>No chart data to display!</Text>
-        ) : (  // otherwise, on Android, we can display the chart
+        <>
+        {
+          (luxData?.length === 0) ? (  // if array is empty, then react-native-chart-kit will fail, so the app will always crash at startup without checking explicitly https://stackoverflow.com/questions/71082961/unable-to-use-dynamic-data-into-react-native-chart-kit
+            <Text>No chart data to display!</Text>
+          ) : (  // otherwise, on Android, we can display the chart
             <View>
               <Text>Light Sensor:</Text>
               <Text>
                 Illuminance: {luxData.slice(-1)} lux
               </Text>
               <LuxChart />
-              <LuxSettings debug={true} />
             </View>
           )
+        }
+        <LuxSettings debug={true} />
+        </>
       )}
     </View>
   );
