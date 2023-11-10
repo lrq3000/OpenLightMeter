@@ -10,3 +10,9 @@ Currently the app works but it is rough around the edges and has no dark mode.
 In the future, I would like to also implement the same app in Flutter to see for myself which framework I prefer to develop such apps.
 
 Initially I wanted the app to work on Windows and iOS too, but iOS does not allow to access the light sensor, and Windows is very tricky to get right although there are some packages, but this will be left for later since expo doesn't support (I would need to re-implement everything specifically for the Windows app - basically it would be like another app, so better just do another app, it will be more maintanable).
+
+## License
+
+This project is licensed under the MIT Public License.
+
+It was created initially by Stephen Karl Larroque for the Circadiaware Collective.
